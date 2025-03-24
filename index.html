@@ -1,0 +1,598 @@
+<!doctype html>
+<html lang="en"> 
+ <head> 
+  <meta charset="UTF-8"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <title>S.SivaSakthi | Portfolio</title> 
+  <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #e3f2fd;
+            color: #333;
+            overflow-x: hidden;
+        }
+        /* Header Layout */
+        .header-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 60px 100px;
+            background: linear-gradient(to bottom, #e3f2fd, #ffffff);
+            border-bottom: 4px solid #0077b6;
+        }
+
+        /* Portfolio Title on Left */
+        .portfolio-title {
+            font-size: 60px;
+            font-weight: bold;
+            color: #0077b6;
+            flex: 1;
+            text-align: left;
+        }
+        /* Profile Picture on Right */
+        .profile-container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+        .profile-pic {
+            width: 280px;
+            height: 300px;
+            border-radius: 50%;
+            border: 6px solid #0077b6;
+            object-fit: cover;
+            box-shadow: 0px 0px 15px rgba(0, 119, 182, 0.4);
+            transition: transform 0.3s ease-in-out;
+        }
+        .profile-pic:hover {
+            transform: scale(1.07);
+        }
+        .info-container {
+            text-align: center;
+            padding-top: 30px,0;
+        }
+        .name {
+            font-size: 55px;
+            font-weight: bold;
+            color: #0077b6;
+            margin: 10px 0;
+        }
+        .sub-title {
+            font-size: 24px;
+            color: #444;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        /* Typing Animation */
+        .intro {
+          font-size: 28px;
+          color: #333;
+          text-align: center;
+          font-weight: bold;
+          min-height: 30px;
+        }
+        #typing-text {
+           display: inline-block;
+           border-right: 3px solid #0077b6;
+           padding-right: 5px;
+           animation: blink 0.7s infinite;
+        }       
+        /* Cursor Blinking Effect */
+        @keyframes blink {
+          50% { border-color: transparent; }
+        }
+        .social-icons {
+          display: flex;
+          justify-content: center;
+          gap: 30px;
+          margin-top: 15px;
+        }
+        .social-icons a {
+          text-decoration: none;
+          font-size: 30px; 
+          color: #0077b6;  
+          transition: color 0.3s ease, transform 0.3s ease;
+        }
+        /* Hover Effect */
+        .social-icons a:hover {
+          color: #005b8f;
+          transform: scale(1.1);
+        }
+        .social-icons a img {
+          width: 40px;
+          height: 40px;
+          transition: transform 0.3s ease, filter 0.3s ease;
+        }
+        /* Hover Effect */
+        .social-icons a:hover img {
+          transform: scale(1.1);
+          filter: brightness(1.2);
+        }
+        /* Navigation */
+        .nav-block {
+            background: #0077b6;
+            text-align: center;
+            padding: 15px 0;
+            border-bottom: 3px solid #005b8f;
+        }
+        .nav-block ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        .nav-block ul li {
+            display: inline;
+        }
+        .nav-block ul li a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            padding: 12px 18px;
+            font-size: 16px;
+            transition: background 0.3s, color 0.3s;
+            border-radius: 5px;
+        }
+        .nav-block ul li a:hover {
+            background: #005b8f;
+        }
+        /* General Section Styling */
+        section {
+            margin: 40px auto;
+            padding: 60px 40px; 
+            width: 80%;
+            min-height: 300px; 
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            border-left: 6px solid #0077b6;
+            border-right: 6px solid #0077b6;
+            position: relative;
+            overflow: hidden;
+        }
+        section h2 {
+          font-size: 30px;
+          font-weight: bold;
+          color: #333;
+          text-align: center;
+          margin-bottom: 25px;
+          letter-spacing: 1px;
+        }
+        /* Animated Background */
+        section::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: radial-gradient(circle, rgba(0, 119, 182, 0.2) 20%, rgba(0, 119, 182, 0) 80%);
+          animation: glowMove 6s infinite alternate;
+          z-index: -1;
+        }
+        /* Glow Animation */
+        @keyframes glowMove {
+          from {
+            transform: scale(1);
+            opacity: 0.5;
+          }
+          to {
+            transform: scale(1.2);
+            opacity: 0.7;
+          }
+          }
+        #about p {
+            font-size: 18px;
+            color: #333;
+            line-height: 1.4; /* Improves readability */
+        }
+        /* Education Section Styling */
+        #education {
+            text-align: center;
+            padding: 40px;
+        }
+        .education-entry {
+            margin-top: 20px;
+        }
+        .education-entry h3 {
+          font-size: 22px;
+          font-weight: bold;
+          color: #333;
+          margin-bottom: 10px;
+        }
+        .education-entry p {
+          font-size: 18px;
+          color: #333;
+          margin: 5px 0;
+        }
+        .skills-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding: 20px;
+        }
+        /* Individual Skill Box */
+        .skills-category {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            padding: 20px;
+            width: 30%;
+            text-align: center;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        /* Hover Effect */
+        .skills-category:hover {
+            transform: scale(1.05);
+            box-shadow: 0px 6px 12px rgba(0, 119, 182, 0.4);
+        }
+        /* Heading Style */
+        .skills-category h3 {
+            color: #0077b6;
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+        /* List Style */
+        .skills-category ul {
+            list-style: none;
+            padding: 0;
+        }
+        .skills-category li {
+            font-size: 16px;
+            color: #333;
+            padding: 5px 0;
+            transition: color 0.3s;
+        }
+        /*Projects Section Styling*/
+        .project-container {
+          text-align: center;
+          margin-top: 30px;
+          padding: 20px;
+          position: relative;
+        }
+        .project-title {
+          font-size: 35px;
+          font-weight: bold;
+          color: #0077b6;
+          position: relative;
+          display: inline-block;
+          padding-bottom: 5px;
+          transition: color 0.3s ease-in-out;
+        }
+        .project-title:hover {
+          color: #005b8f;
+          transform: scale(1.05);
+          transition: all 0.3s ease-in-out;
+        }
+        .project-title::after {
+          content: "";
+          display: block;
+          width: 60%;
+          height: 3px;
+          background-color: #0077b6;
+          margin: 8px auto 0;
+          transition: width 0.3s ease-in-out;
+        }
+        .project-title:hover::after {
+          width: 100%;
+        }
+        .project-status {
+            color: #333; 
+            font-size: 25px;
+            font-weight: normal;
+            margin-top: 5px; 
+            margin-bottom: 15px;
+        }
+        .internship-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .internship-item {
+            margin-bottom: 25px;
+        }
+        .internship-item h3 {
+            font-size: 25px;
+            color: #333;
+            margin-bottom: 5px;
+        }
+        .internship-item p {
+            font-size: 18px;
+            color: #333;
+            margin: 5px 0;
+        }
+        .view-btn {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 18px;
+            background-color: #0077b6;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.2s ease-in-out;
+        }
+        .view-btn:hover {
+            background-color: #005b8f;
+            transform: scale(1.05);
+        }
+        .certificate-container {
+            display: none; 
+            margin-top: 20px;
+            text-align: center;
+        }
+        #certificate-image {
+            max-width: 80%;
+            height: auto;
+            border: 2px solid #0077b6;
+            border-radius: 8px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        /* Style the Certificate List */
+        .certificate-list {
+            text-align: left;
+            max-width: 500px; 
+            margin: 0 auto;
+            padding: 10px 0;
+        }
+        .certificate-list ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .certificate-list li {
+            font-size: 20px;
+            color: #333;
+            margin: 20px, 0; 
+            padding: 15px 18px; 
+            border-left: 4px solid #0077b6; 
+            background: rgba(0, 119, 182, 0.07); 
+            border-radius: 5px;
+            width: fit-content; 
+            max-width: 100%; 
+        }
+        /* Fix the overall section */
+        #certificates {
+            display: block;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding: 30px; 
+        }
+        .resume-section {
+            text-align: center; 
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100%; 
+        }
+        /* Resume Button with Glowing Border */
+        .resume-btn {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 12px 24px;
+            background-color: transparent;
+            color: #0077b6;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            font-weight: bold;
+            position: relative;
+            border: 2px solid #0077b6;
+            overflow: hidden;
+            transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
+        }
+        /* Animated Border Effect */
+        .resume-btn::before {
+            content: "";
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            border-radius: 5px;
+            border: 3px solid transparent;
+            background: linear-gradient(90deg, #00c6ff, #0077b6, #00c6ff);
+            z-index: -1;
+            filter: blur(4px);
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+        /* Hover Effect - Glow Appears */
+        .resume-btn:hover::before {
+            opacity: 1;
+        }
+        /* Button Hover Effect */
+        .resume-btn:hover {
+            transform: scale(1.05);
+            color: white;
+            background-color: #0077b6;
+        }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        </style> 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"> 
+ </head> 
+ <body> 
+  <header> 
+   <div class="header-container"> 
+    <h1 class="portfolio-title">PORTFOLIO</h1> 
+    <div class="profile-container"> 
+     <img src="profile-img.jpg" "alt="Sivasakthi" class="profile-pic"> 
+    </div> 
+   </div> 
+   <div style="height: 80px;"></div> 
+   <div class="info-container"> 
+    <h1 class="name">S.Sivasakthi</h1> 
+    <p class="sub-title">BCA Student</p> 
+    <p class="intro"><span id="typing-text"></span></p> 
+    <div class="social-icons"> <a href="mailto:s.sivasakthi2005@gmail.com"> <i class="fa-solid fa-envelope"></i> </a> <a href="https://www.linkedin.com/in/s-sivasakthi" target="_blank"> <i class="fa-brands fa-linkedin"></i> </a> <a href="https://github.com/SSiva-sakthi" target="_blank"> <i class="fa-brands fa-github"></i> </a> 
+    </div> 
+    <div style="height: 80px;"></div> 
+    <nav class="nav-block"> 
+     <ul> 
+      <li><a href="#about">ABOUT</a></li> 
+      <li><a href="#education">EDUCATION</a></li> 
+      <li><a href="#skills">SKILLS</a></li> 
+      <li><a href="#project">PROJECT</a></li> 
+      <li><a href="#internship">INTERNSHIP</a></li> 
+      <li><a href="#certificates">CERTIFICATES</a></li> 
+      <li><a href="#resume">RESUME</a></li> 
+     </ul> 
+    </nav> 
+    <section id="about" class="fade-in"> 
+     <h2><strong>About</strong></h2> 
+     <p>I'm a BCA student passionate about full-stack development. I enjoy coding, problem-solving, and exploring new technologies to enhance my skills. My goal is to become a proficient software developer in the IT industry."</p> 
+    </section> 
+    <section id="education" class="fade-in"> 
+     <h2><strong>Education</strong></h2> 
+     <div class="education-entry"> 
+      <h3>Dr. M.G.R. Janaki College of Arts and Science for Women</h3> 
+      <p><strong>Bachelor of Computer Applications (BCA)</strong></p> 
+      <p>Present | 2023-2026</p> 
+     </div> 
+    </section> 
+    <section id="skills" class="fade-in"> 
+     <h2><strong>Skills</strong></h2> 
+     <div class="skills-container"> 
+      <div class="skills-category"> 
+       <h3>Technical Skills</h3> 
+       <ul> 
+        <li>Python</li> 
+        <li>Java</li> 
+        <li>HTML CSS&amp; Javascript</li> 
+        <li>MySQL</li> 
+        <li>Pandas &amp; Matplotlib</li> 
+       </ul> 
+      </div> 
+      <div class="skills-category"> 
+       <h3>Soft Skills</h3> 
+       <ul> 
+        <li>Communication</li> 
+        <li>Creative Thinking</li> 
+        <li>Problem-Solving</li> 
+       </ul> 
+      </div> 
+      <div class="skills-category"> 
+       <h3>Tools &amp; Technologies</h3> 
+       <ul> 
+        <li>Git &amp; GitHub</li> 
+        <li>Visual Studio Code</li> 
+       </ul> 
+      </div> 
+     </div> 
+    </section> 
+    <section id="project" class="fade-in"> 
+     <h2><strong>Project</strong></h2> 
+     <div class="project-container"> 
+      <h3 class="project-title">Digital Portfolio</h3> 
+      <h4 class="project-status">Present</h4> 
+      <p class="project-description"> Designed and developed a <strong>personal digital portfolio</strong> using <span class="highlight">HTML, CSS, and JavaScript</span>.</p> 
+      <p class="project-description">Features include <span class="highlight">smooth animations, responsive design, and an interactive navigation menu </span>.</p> 
+     </div> 
+    </section> 
+    <section id="internship" class="fade-in"> 
+     <h2><strong>Internship</strong></h2> 
+     <div class="internship-container"> 
+      <div class="internship-item"> 
+       <h3>Python Django Internship</h3> 
+       <p>Suven Consultants and Technology Pvt Ltd | 2024</p> <button class="view-btn" onclick="toggleCertificate()">View Certificate</button> 
+       <div id="certificate-container" class="certificate-container"> 
+        <img id="certificate-image" src="certificate_img.png" alt="Internship Certificate"> 
+       </div> 
+      </div> 
+     </div> 
+    </section> 
+    <section id="certificates" class="fade-in"> 
+     <h2><strong>Certificates</strong></h2> 
+     <div class="certificate-list"> 
+      <ul> 
+       <li> <strong>Object oriented programming using Python</strong> - Infosys Springboard | 2024 </li> 
+      </ul> 
+      <ul> 
+       <li> <strong>Job Readiness Skill for Girls</strong> - Team Everest | 2024-2025 </li> 
+      </ul> 
+     </div> 
+    </section> 
+    <section id="resume" class="fade-in"> 
+     <h2><strong>Resume</strong></h2> <a href="My Resume.pdf" class="resume-btn">Download CV</a> 
+    </section> 
+    <footer> 
+     <p>© 2025 Sivasakthi</p> 
+    </footer> 
+    <script>
+                document.addEventListener("DOMContentLoaded", function () {
+                    const sections = document.querySelectorAll(".fade-in");
+                    const observer = new IntersectionObserver(entries => {
+                        entries.forEach(entry => {
+                            if (entry.isIntersecting) {
+                                entry.target.classList.add("visible");
+                            }
+                        });
+                    }, { threshold: 0.6 });
+                    sections.forEach(section => observer.observe(section));
+                });
+                
+                document.addEventListener("DOMContentLoaded", function () {
+                    const textArray = [
+                    "I'm an aspiring full-stack developer",
+                    "Passionate about learning and coding"
+                    ];
+                    let textIndex = 0;
+                    let charIndex = 0;
+                    let isDeleting = false;
+                    const typingSpeed = 100;  
+                    const erasingSpeed = 50;  
+                    const delayBetweenTexts = 1500; 
+                    const typingElement = document.getElementById("typing-text");
+                    
+                    function typeEffect() {
+                        const currentText = textArray[textIndex];
+                        if (!isDeleting) {
+                            typingElement.textContent = currentText.substring(0, charIndex++);
+                        } 
+                        else {
+                            typingElement.textContent = currentText.substring(0, charIndex--);
+                        }
+                        if (!isDeleting && charIndex === currentText.length + 1) {
+                            isDeleting = true;
+                            setTimeout(typeEffect, delayBetweenTexts);
+                        } 
+                        else if (isDeleting && charIndex === 0) {
+                            isDeleting = false;
+                            textIndex = (textIndex + 1) % textArray.length;
+                            setTimeout(typeEffect, typingSpeed);
+                        } 
+                        else {
+                            setTimeout(typeEffect, isDeleting ? erasingSpeed : typingSpeed);
+                        }
+                    }
+                    typeEffect();
+                });
+
+                function toggleCertificate() {
+                    var container = document.getElementById("certificate-container");
+                    if (container.style.display === "none" || container.style.display === "") {
+                        container.style.display = "block";
+                    } 
+                    else {
+                        container.style.display = "none";
+                    }
+                }
+                </script> 
+  </div></header>
+ 
+</body></html>
